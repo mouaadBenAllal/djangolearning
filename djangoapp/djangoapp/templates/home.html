@@ -1,0 +1,50 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Auto's</title>
+</head>
+<body>
+{% for autos in auto_list %}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-6 col-md-2" style="position:relative;">
+    <div class="thumbnail" style=" background: -webkit-linear-gradient(left top,#e5e5e5 , WhiteSmoke );
+    background: -o-linear-gradient(bottom right, #e5e5e5 , WhiteSmoke );
+    background: -moz-linear-gradient(bottom right, #e5e5e5 , WhiteSmoke );
+    background: linear-gradient(to bottom right, #e5e5e5 , WhiteSmoke );">
+<img src="{{ autos.image.url }}" alt="My image" style="height: 180px; width: 270px; border-radius: 5px;"/>
+
+      <div class="caption">
+        <h3>{{ autos.merk_auto }}</h3>
+        <h4>{{ autos.type_auto }}</h4>
+          <div class="price" style="border-radius: 5px; background: #e5e5e5; width:120px;">€  {{ autos.prijs }}</div>
+          <br>
+        <p><div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse{{ forloop.counter }}">Info</a>
+        </h4>
+      </div>
+      <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item">One</li>
+          <li class="list-group-item">Two</li>
+          <li class="list-group-item">Three</li>
+        </ul>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+    </div>
+</div>
+</body>
+</html>
